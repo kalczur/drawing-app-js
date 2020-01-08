@@ -1,8 +1,15 @@
+
 window.addEventListener("load", () => {
+  console.clear();
   const canvas = document.querySelector("#canvas");
-  const color = document.querySelector("#color");
+  const penColor = document.querySelector("#penColor");
   const thick = document.querySelector("#thick");
   const clear = document.querySelector("#clear");
+  const bgColor = document.querySelector("#bgColor");
+  const save = document.querySelector("#save");
+  const ham = document.querySelector("#ham");
+  const col = document.querySelector("#toolKit .col");
+  const btn = document.querySelector("#toolKit .btn");
   const ctx = canvas.getContext("2d");
 
   //size on start
@@ -24,16 +31,28 @@ window.addEventListener("load", () => {
     if (!painting) return;
 
     ctx.lineWidth = thick.value;
-    ctx.lineCap = "round"; //dodaj do wybou
-    ctx.strokeStyle = color.value;
+    ctx.lineCap = "round";
+    ctx.strokeStyle = penColor.value;
 
     ctx.lineTo(e.offsetX, e.offsetY);
     ctx.stroke();
     ctx.beginPath();
     ctx.moveTo(e.offsetX, e.offsetY);
   };
+  const changeBgColor = () => {
+    ctx.fillStyle = bgColor.value;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  };
   const clearCanvas = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+  };
+  const saveCanvas = () => {
+    const myImg = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    window.location.href = myImg;
+  };
+  const showList = () => {
+    btn.style.display = "block";
+    col.style.display = "block";
   };
 
   //events
@@ -41,6 +60,11 @@ window.addEventListener("load", () => {
   canvas.addEventListener("mouseup", finishedPosition);
   canvas.addEventListener("mousemove", draw);
   clear.addEventListener("click", clearCanvas);
+  bgColor.addEventListener("change", changeBgColor);
+  save.addEventListener("click", saveCanvas);
+  ham.addEventListener("click", showList);
+
+  console.log(ctx);
 });
 
 window.addEventListener("resize", () => {
