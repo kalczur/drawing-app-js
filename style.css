@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   padding: 0;
@@ -16,10 +17,15 @@ body {
   font-family: "Long Cang", cursive;
   font-weight: bold;
   font-size: 35px;
+  max-height: 10vh;
+}
+#ham {
+  display: none;
 }
 .col {
   display: grid;
   grid-template-rows: 1fr 1fr;
+  height: 100%;
   width: 100%;
 }
 .col:hover {
@@ -34,15 +40,46 @@ body {
   font-family: "Cute Font", cursive;
   font-size: 25px;
 }
-#color {
+.color {
   margin: auto;
   width: 90%;
 }
-#clear {
-  width: 90%;
-  height: 90%;
+.btn {
+  width: 70%;
+  height: 70%;
   margin: auto;
-  border: 1px solid black;
+
   background: #eee;
   cursor: pointer;
+}
+.btn:hover {
+  box-shadow: 0 4px 4px 0px rgba(0, 0, 0, 0.2);
+  transition: 0.2s;
+}
+.btn:not(:hover) {
+  box-shadow: 0;
+  transition: 0.5s;
+}
+
+@media only screen and (max-width: 1100px) {
+  #toolKit #logo {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 750px) {
+  #toolKit {
+    grid-template-columns: 4fr 1fr;
+  }
+  #ham {
+    display: block;
+  }
+  #toolKit #logo {
+    width: 100%;
+  }
+  #toolKit .col {
+    display: none;
+  }
+  #toolKit .btn {
+    display: none;
+  }
 }
