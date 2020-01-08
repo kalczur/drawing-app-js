@@ -11,16 +11,21 @@
   <body>
     <div id="toolKit">
       <div id="logo">Drawing app</div>
-        <div></div>
+      <div id="ham">H</div>
       <div class="col">
         <label class="title for="thick">Grubosc:</label>
         <input type="range" min="1" max="50" id="thick" />
       </div>
       <div class="col">
-        <label class="title "for="color">Kolor:</label>
-        <input type="color" id="color" value="#00ff00" />
+        <label class="title "for="penColor">Kolor:</label>
+        <input type="color" id="penColor" class="color" value="#00ff00" />
       </div>
-      <button id="clear">Wyszysc</button>
+      <button id="clear" class="btn">Wyszysc</button>
+      <div class="col">
+        <label class="title "for="bgColor">Kolor:</label>
+        <input type="color" id="bgColor" class="color" value="#ffffff" />
+      </div>
+      <button id="save" class="btn">Zapisz</button>
     </div>
 
     <canvas id="canvas">asdsadas</canvas>
