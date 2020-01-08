@@ -47,8 +47,9 @@ window.addEventListener("load", () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   };
   const saveCanvas = () => {
-    const myImg = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-    window.location.href = myImg;
+    const src = canvas.toDataURL("image/png");
+    const w = window.open('about:blank','image from canvas');
+    w.document.write(`<img src="${src}" alt="from canvas">`);
   };
   const showList = () => {
     btn.style.display = "block";
