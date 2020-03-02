@@ -1,34 +1,31 @@
 <!DOCTYPE html>
 <html lang="pl">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Cute+Font&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Cute+Font|Long+Cang&display=swap" rel="stylesheet">
-    <title>Drawing app</title>
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="style.css" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Cute+Font&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Cute+Font|Long+Cang&display=swap"
+            rel="stylesheet"
+        />
+        <title>Drawing app</title>
+    </head>
 
-  <body>
-    <div id="toolKit">
-      <div id="logo">Drawing app</div>
-      <div id="ham">H</div>
-      <div class="col">
-        <label class="title for="thick">Grubosc:</label>
-        <input type="range" min="1" max="50" id="thick" />
-      </div>
-      <div class="col">
-        <label class="title "for="penColor">Kolor:</label>
-        <input type="color" id="penColor" class="color" value="#00ff00" />
-      </div>
-      <button id="clear" class="btn">Wyszysc</button>
-      <div class="col">
-        <label class="title "for="bgColor">Kolor:</label>
-        <input type="color" id="bgColor" class="color" value="#ffffff" />
-      </div>
-      <button id="save" class="btn">Zapisz</button>
-    </div>
+    <body>
+        <div class="toolKit">
+            <input type="color" class="toolKitItem penColor" />
+            <div class="toolKitItem minusThick">-</div>
+            <div class="toolKitItem plusThick">+</div>
+            <input type="color" class="toolKitItem canvasColor" />
+            <div class="toolKitItem clear">Cls</div>
+            <div class="toolKitItem save">Save</div>
+        </div>
 
-    <canvas id="canvas">asdsadas</canvas>
-    <script src="canvas.js"></script>
-  </body>
+        <canvas class="canvas"></canvas>
+
+        <script src="canvas.js"></script>
+    </body>
 </html>
