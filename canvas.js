@@ -43,9 +43,6 @@ window.addEventListener("load", () => {
     ctx.fillStyle = bgColor.value;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
   };
-  const clearCanvas = () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-  };
   const saveCanvas = () => {
     const src = canvas.toDataURL("image/png");
     const w = window.open('about:blank','image from canvas');
@@ -60,7 +57,7 @@ window.addEventListener("load", () => {
   canvas.addEventListener("mousedown", startPosition);
   canvas.addEventListener("mouseup", finishedPosition);
   canvas.addEventListener("mousemove", draw);
-  clear.addEventListener("click", clearCanvas);
+  clear.addEventListener("click", changeBgColor);
   bgColor.addEventListener("change", changeBgColor);
   save.addEventListener("click", saveCanvas);
   ham.addEventListener("click", showList);
