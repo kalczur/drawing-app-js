@@ -16,12 +16,34 @@
 
     <body>
         <div class="toolKit">
-            <input type="color" class="toolKitItem penColor" />
-            <div class="toolKitItem minusThick">-</div>
-            <div class="toolKitItem plusThick">+</div>
-            <input type="color" class="toolKitItem canvasColor" />
-            <div class="toolKitItem clear">Cls</div>
-            <div class="toolKitItem save">Save</div>
+            <div>
+                <input
+                    type="color"
+                    class="toolKitItem penColor"
+                    value="#333333"
+                />
+            </div>
+            <div class="toolKitItem minusThick">
+                <img src="./img/minus.svg" alt="minus" />
+            </div>
+            <div class="toolKitItem plusThick">
+                <img src="./img/plus.svg" alt="plus" />
+            </div>
+            <div>
+                <input
+                    type="color"
+                    class="toolKitItem canvasColor"
+                    value="#cccccc"
+                />
+            </div>
+
+            <div class="toolKitItem clear">
+                <img src="./img/" alt="clear" />
+            </div>
+
+            <div class="toolKitItem save">
+                <img src="./img/save.svg" alt="save" />
+            </div>
         </div>
 
         <canvas class="canvas"></canvas>

@@ -7,12 +7,10 @@ window.addEventListener("load", () => {
     const clear = document.querySelector(".clear");
     const bgColor = document.querySelector(".canvasColor");
     const save = document.querySelector(".save");
-    const col = document.querySelector(".toolKit .col");
-    const btn = document.querySelector(".toolKit .btn");
     const ctx = canvas.getContext("2d");
 
     //size on start
-    canvas.height = window.innerHeight - window.innerHeight / 9;
+    canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
 
     //varibles
@@ -23,13 +21,16 @@ window.addEventListener("load", () => {
         painting = true;
         draw(e);
     };
+
     const finishedPosition = () => {
         painting = false;
         ctx.beginPath();
     };
+
     const draw = e => {
         if (!painting) return;
-
+        console.log(thickSize);
+        console.log(penColor.value);
         ctx.lineWidth = thickSize;
         ctx.lineCap = "round";
         ctx.strokeStyle = penColor.value;
@@ -39,18 +40,16 @@ window.addEventListener("load", () => {
         ctx.beginPath();
         ctx.moveTo(e.offsetX, e.offsetY);
     };
+
     const changeBgColor = () => {
         ctx.fillStyle = bgColor.value;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
     };
+
     const saveCanvas = () => {
         const src = canvas.toDataURL("image/png");
         const w = window.open("about:blank", "image from canvas");
         w.document.write(`<img src="${src}" alt="from canvas">`);
-    };
-    const showList = () => {
-        btn.style.display = "block";
-        col.style.display = "block";
     };
 
     //events
@@ -60,10 +59,17 @@ window.addEventListener("load", () => {
     clear.addEventListener("click", changeBgColor);
     bgColor.addEventListener("change", changeBgColor);
     save.addEventListener("click", saveCanvas);
+
     minusThick.addEventListener("click", () => {
         thickSize--;
     });
     plusThick.addEventListener("click", () => {
         thickSize++;
     });
+});
+
+window.addEventListener("resize", () => {
+    const canvas = document.querySelector(".canvas");
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
 });
